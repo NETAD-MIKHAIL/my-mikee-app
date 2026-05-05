@@ -8,7 +8,7 @@ export default function App() {
     <div className="layout">
       {/* SIDEBAR */}
       <aside className="sidebar">
-        <div className="brand">MIKEE v.0.0.1 ADMIN</div>
+        <div className="brand">MIKEE ADMIN</div>
 
         <button onClick={() => setActive("dashboard")}>📊 Dashboard</button>
         <button onClick={() => setActive("users")}>👤 Users</button>

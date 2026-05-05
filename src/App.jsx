@@ -5,30 +5,29 @@ export default function App() {
   const [active, setActive] = useState("dashboard");
 
   return (
-    <div className="app">
+    <div className="layout">
       {/* SIDEBAR */}
       <aside className="sidebar">
-        <h2 className="logo">MIKEE ADMIN</h2>
+        <div className="brand">MIKEE v.0.0.1 ADMIN</div>
 
-        <nav>
-          <button onClick={() => setActive("dashboard")}>Dashboard</button>
-          <button onClick={() => setActive("users")}>Users</button>
-          <button onClick={() => setActive("reports")}>Reports</button>
-        </nav>
+        <button onClick={() => setActive("dashboard")}>📊 Dashboard</button>
+        <button onClick={() => setActive("users")}>👤 Users</button>
+        <button onClick={() => setActive("inventory")}>📦 Inventory</button>
+        <button onClick={() => setActive("settings")}>⚙️ Settings</button>
       </aside>
 
       {/* MAIN */}
-      <main className="main">
+      <div className="main">
         {/* TOPBAR */}
         <header className="topbar">
-          <h3>{active.toUpperCase()}</h3>
-          <div className="profile">Admin</div>
+          <h2>{active.toUpperCase()}</h2>
+          <div className="user">Admin</div>
         </header>
 
         {/* CONTENT */}
-        <section className="content">
+        <div className="content">
           {active === "dashboard" && (
-            <div className="grid">
+            <div className="cards">
               <div className="card">
                 <h4>Total Users</h4>
                 <p>1,245</p>
@@ -53,19 +52,26 @@ export default function App() {
 
           {active === "users" && (
             <div className="panel">
-              <h2>User Management</h2>
+              <h3>User Management</h3>
               <p>Manage system users here.</p>
             </div>
           )}
 
-          {active === "reports" && (
+          {active === "inventory" && (
             <div className="panel">
-              <h2>Reports</h2>
-              <p>Analytics and system reports.</p>
+              <h3>Inventory</h3>
+              <p>Manage products and stock.</p>
             </div>
           )}
-        </section>
-      </main>
+
+          {active === "settings" && (
+            <div className="panel">
+              <h3>Settings</h3>
+              <p>System configuration panel.</p>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
